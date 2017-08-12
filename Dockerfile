@@ -22,10 +22,10 @@ RUN set -x \
 RUN mkdir /docker-entrypoint-initdb.d
 
 # comment out a few problematic configuration values
-# don't reverse lookup hostnames, they are usually another container
-RUN sed -Ei 's/^(bind-address|log)/#&/' /etc/mysql/my.cnf \
-    && echo -e 'skip-host-cache\nskip-name-resolve' | awk '{ print } $1 == "[mysqld]" && c == 0 { c = 1; system("cat") }' /etc/mysql/my.cnf > /tmp/my.cnf \
-    && mv /tmp/my.cnf /etc/mysql/my.cnf
+RUN sed -Ei 's/^(bind-address|log)/#&/' /etc/mysql/my.cnf
+
+RUN echo -e "\n!includedir /etc/mysql/conf.d" >> /etc/mysql/my.cnf
+COPY conf.d/* /etc/mysql/conf.d/
 
 VOLUME /var/lib/mysql
 
