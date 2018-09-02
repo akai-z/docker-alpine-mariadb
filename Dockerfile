@@ -1,8 +1,10 @@
 FROM alpine:3.8
 
-RUN addgroup -S mysql && adduser -Sg mysql mysql
+COPY docker-entrypoint.sh /usr/local/bin/
 
 RUN set -x \
+    && addgroup -S mysql \
+    && adduser -Sg mysql mysql \
     && apk update \
     && apk add -u --no-cache \
         bash \
@@ -17,20 +19,17 @@ RUN set -x \
     && mkdir -p /var/lib/mysql /var/run/mysqld /run/mysqld \
     # ensure that /var/run/mysqld (used for socket and lock files) is writable regardless of the UID our mysqld instance ends up having at runtime
     && chown -R mysql:mysql /var/lib/mysql /var/run/mysqld /run/mysqld \
-    && chmod 777 /var/run/mysqld /run/mysqld
+    && chmod 777 /var/run/mysqld /run/mysqld \
+    && mkdir /docker-entrypoint-initdb.d \
+    # comment out a few problematic configuration values
+    && sed -Ei 's/^(bind-address|log)/#&/' /etc/mysql/my.cnf \
+    && echo -e "\n!includedir /etc/mysql/conf.d" >> /etc/mysql/my.cnf \
+    && ln -s usr/local/bin/docker-entrypoint.sh / # backward compatibility
 
-RUN mkdir /docker-entrypoint-initdb.d
-
-# comment out a few problematic configuration values
-RUN sed -Ei 's/^(bind-address|log)/#&/' /etc/mysql/my.cnf
-
-RUN echo -e "\n!includedir /etc/mysql/conf.d" >> /etc/mysql/my.cnf
 COPY conf.d/* /etc/mysql/conf.d/
 
 VOLUME /var/lib/mysql
 
-COPY docker-entrypoint.sh /usr/local/bin/
-RUN ln -s usr/local/bin/docker-entrypoint.sh / # backward compatibility
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 3306
