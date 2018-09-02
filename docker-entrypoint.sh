@@ -163,8 +163,6 @@ EOSQL
       if [ "$MYSQL_DATABASE" ]; then
         echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* TO '$MYSQL_USER'@'%' ;" | "${mysql[@]}"
       fi
-
-      echo 'FLUSH PRIVILEGES ;' | "${mysql[@]}"
     fi
 
     echo
