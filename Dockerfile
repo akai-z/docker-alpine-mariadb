@@ -17,8 +17,8 @@ RUN set -x \
     # purge and re-create /var/lib/mysql with appropriate ownership
     && rm -rf /var/lib/mysql \
     && mkdir -p /var/lib/mysql /var/run/mysqld /run/mysqld \
-    # ensure that /var/run/mysqld (used for socket and lock files) is writable regardless of the UID our mysqld instance ends up having at runtime
     && chown -R mysql:mysql /var/lib/mysql /var/run/mysqld /run/mysqld \
+    # ensure that /var/run/mysqld (used for socket and lock files) is writable regardless of the UID our mysqld instance ends up having at runtime
     && chmod 777 /var/run/mysqld /run/mysqld \
     && mkdir /docker-entrypoint-initdb.d \
     # comment out a few problematic configuration values
