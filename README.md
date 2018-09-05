@@ -9,3 +9,7 @@ https://hub.docker.com/r/library/mariadb/
 ## MariaDB Version
 
 `10.2.15`
+
+## Authors
+
+* Ammar K.
