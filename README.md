@@ -13,3 +13,7 @@ https://hub.docker.com/r/library/mariadb/
 ## Authors
 
 * Ammar K.
+
+## License
+
+[GNU General Public License version 2](https://github.com/akai-z/docker-alpine-mariadb/blob/master/LICENSE)
