@@ -2,7 +2,7 @@
 This image is based on the official Ubuntu Linux MariaDB Docker image.
 
 For more details, check the following link:  
-https://hub.docker.com/r/library/mariadb/
+https://hub.docker.com/_/mariadb/
 
 ## Supported tags and respective `Dockerfile` links
 
