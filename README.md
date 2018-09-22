@@ -1,4 +1,7 @@
-It is based on the official Debian Linux MariaDB Docker image:  
+**Note:**  
+This image is based on the official Ubuntu Linux MariaDB Docker image.
+
+For more details, check the following link:  
 https://hub.docker.com/r/library/mariadb/
 
 ## Supported tags and respective `Dockerfile` links
