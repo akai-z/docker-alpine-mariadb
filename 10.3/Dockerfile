@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.9
 
 LABEL maintainer="Ammar K."
 
@@ -7,7 +7,6 @@ COPY docker-entrypoint.sh /usr/local/bin/
 RUN set -x \
     && addgroup -S mysql \
     && adduser -Sg mysql mysql \
-    && apk add -u --no-cache apk-tools \
     && apk update \
     && apk add -u --no-cache \
         bash \
