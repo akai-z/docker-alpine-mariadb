@@ -8,7 +8,7 @@ https://hub.docker.com/_/mariadb/
 
 * [`10.3.13-alpine3.9, 10.3.13, 10.3, 10, latest` (*10.3/Dockerfile*)](https://github.com/akai-z/docker-alpine-mariadb/blob/master/10.3/Dockerfile)
 * [`10.2.15-alpine3.8, 10.2.15, 10.2` (*10.2/Dockerfile*)](https://github.com/akai-z/docker-alpine-mariadb/blob/master/10.2/Dockerfile)
-* [`10.1.32-alpine3.7, 10.1.32, 10.1` (*10.1/Dockerfile*)](https://github.com/akai-z/docker-alpine-mariadb/blob/master/10.1/Dockerfile)
+* [`10.1.40-alpine3.7, 10.1.40, 10.1` (*10.1/Dockerfile*)](https://github.com/akai-z/docker-alpine-mariadb/blob/master/10.1/Dockerfile)
 
 ## Authors
 
