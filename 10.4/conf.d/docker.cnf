@@ -1,0 +1,4 @@
+[mysqld]
+# Don't reverse lookup hostnames, they are usually another container
+skip-host-cache
+skip-name-resolve
