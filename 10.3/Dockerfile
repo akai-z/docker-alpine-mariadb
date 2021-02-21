@@ -24,8 +24,7 @@ RUN set -x \
     && chmod 777 /var/run/mysqld /run/mysqld \
     && mkdir /docker-entrypoint-initdb.d \
     # comment out a few problematic configuration values
-    && sed -Ei 's/^(bind-address|log)/#&/' /etc/my.cnf /etc/my.cnf.d/* \
-    && ln -s usr/local/bin/docker-entrypoint.sh / # backward compatibility
+    && sed -Ei 's/^(bind-address|log)/#&/' /etc/my.cnf /etc/my.cnf.d/*
 
 COPY conf.d/* /etc/my.cnf.d/
 
