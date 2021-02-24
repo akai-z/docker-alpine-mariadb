@@ -2,8 +2,6 @@ FROM alpine:3.8
 
 LABEL maintainer="Ammar K."
 
-COPY docker-entrypoint.sh /usr/local/bin/
-
 RUN set -x \
     && addgroup -S mysql \
     && adduser -Sg mysql mysql \
@@ -28,6 +26,7 @@ RUN set -x \
     && echo -e "\n!includedir /etc/mysql/conf.d" >> /etc/mysql/my.cnf
 
 COPY conf.d/* /etc/mysql/conf.d/
+COPY docker-entrypoint.sh /usr/local/bin/
 
 VOLUME /var/lib/mysql
 
