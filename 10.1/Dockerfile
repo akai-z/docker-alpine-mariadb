@@ -25,8 +25,7 @@ RUN set -x \
     && mkdir /docker-entrypoint-initdb.d \
     # comment out a few problematic configuration values
     && sed -Ei 's/^(bind-address|log)/#&/' /etc/mysql/my.cnf \
-    && echo -e "\n!includedir /etc/mysql/conf.d" >> /etc/mysql/my.cnf \
-    && ln -s usr/local/bin/docker-entrypoint.sh / # backward compatibility
+    && echo -e "\n!includedir /etc/mysql/conf.d" >> /etc/mysql/my.cnf
 
 COPY conf.d/* /etc/mysql/conf.d/
 
